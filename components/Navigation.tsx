@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
   LayoutDashboard, Wallet, CheckSquare, Users, Store,
-  Clock, FileText, ListChecks, Heart, Menu, X, Download, Upload
+  Clock, FileText, ListChecks, Heart, Menu, X, Download, Upload, HelpCircle
 } from 'lucide-react';
 import { useState } from 'react';
 import { useWeddingStore } from '@/lib/store';
@@ -19,6 +19,7 @@ const navItems = [
   { href: '/guests', label: 'Guest List', icon: Users },
   { href: '/timeline', label: 'Timeline', icon: Clock },
   { href: '/decisions', label: 'Decisions', icon: FileText },
+  { href: '/help', label: 'Guide', icon: HelpCircle },
 ];
 
 const areas = [
