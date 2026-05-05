@@ -3,10 +3,25 @@
 import Link from 'next/link';
 import {
   Heart, LayoutDashboard, Wallet, CheckSquare, ListChecks,
-  Store, Users, Clock, FileText, Download, Upload, ArrowRight,
+  Store, Users, Clock, FileText, Download, Upload, ArrowRight, Gem,
 } from 'lucide-react';
 
 const sections = [
+  {
+    icon: Gem,
+    title: 'Event Details',
+    href: '/events',
+    color: 'text-gold-600',
+    bg: 'bg-gold-50',
+    border: 'border-gold-200',
+    description: 'The style hub for each ceremony. Store confirmed dates, venues, colour palettes, and all the look details — bride\'s dress, hairstyle, makeup and accessories; groom\'s outfit and shoes; and the guest dress code.',
+    tips: [
+      'Click "Edit" on any ceremony card to fill in or update its details.',
+      'Fields start blank — fill them in as decisions get made. Partial info is fine; "Not set yet" just means it\'s still TBC.',
+      'Guest Colour Direction is a great reference when communicating the dress code to guests.',
+      'Details saved here are included in the JSON export, so both of you stay in sync on looks too.',
+    ],
+  },
   {
     icon: LayoutDashboard,
     title: 'Dashboard',
