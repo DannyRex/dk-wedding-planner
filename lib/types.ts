@@ -101,6 +101,28 @@ export interface ChecklistItem {
   notes: string;
 }
 
+export interface EventDetail {
+  id: string;
+  weddingArea: 'Court Wedding' | 'White Wedding' | 'Traditional Wedding' | 'Pre-Wedding Shoot';
+  date: string;
+  venue: string;
+  // Bride
+  brideOutfit: string;
+  brideHairstyle: string;
+  brideMakeup: string;
+  brideAccessories: string;
+  // Groom
+  groomOutfit: string;
+  groomShoes: string;
+  groomAccessories: string;
+  // Guests
+  guestDressCode: string;
+  guestColour: string;
+  // General
+  palette: string;
+  notes: string;
+}
+
 export interface WeddingData {
   budget: BudgetItem[];
   tasks: Task[];
@@ -109,6 +131,7 @@ export interface WeddingData {
   timeline: TimelinePhase[];
   decisions: Decision[];
   checklist: ChecklistItem[];
+  events: EventDetail[];
   lastUpdated: string;
   updatedBy: string;
 }

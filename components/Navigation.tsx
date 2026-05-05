@@ -5,13 +5,14 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
   LayoutDashboard, Wallet, CheckSquare, Users, Store,
-  Clock, FileText, ListChecks, Heart, Menu, X, Download, Upload, HelpCircle
+  Clock, FileText, ListChecks, Heart, Menu, X, Download, Upload, HelpCircle, Gem
 } from 'lucide-react';
 import { useState } from 'react';
 import { useWeddingStore } from '@/lib/store';
 
 const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/events', label: 'Event Details', icon: Gem },
   { href: '/budget', label: 'Budget', icon: Wallet },
   { href: '/tasks', label: 'Tasks', icon: CheckSquare },
   { href: '/checklist', label: 'Checklist', icon: ListChecks },

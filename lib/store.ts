@@ -3,8 +3,8 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { v4 as uuidv4 } from 'uuid';
-import type { WeddingData, BudgetItem, Task, Vendor, Guest, TimelinePhase, Decision, ChecklistItem } from './types';
-import { initialBudget, initialTasks, initialTimeline, initialDecisions, initialChecklist } from './initial-data';
+import type { WeddingData, BudgetItem, Task, Vendor, Guest, TimelinePhase, Decision, ChecklistItem, EventDetail } from './types';
+import { initialBudget, initialTasks, initialTimeline, initialDecisions, initialChecklist, initialEvents } from './initial-data';
 
 interface WeddingStore extends WeddingData {
   // Budget
@@ -43,6 +43,9 @@ interface WeddingStore extends WeddingData {
   updateChecklistItem: (id: string, updates: Partial<ChecklistItem>) => void;
   deleteChecklistItem: (id: string) => void;
 
+  // Events
+  updateEvent: (id: string, updates: Partial<EventDetail>) => void;
+
   // Import / Export
   importData: (data: Partial<WeddingData>) => void;
   exportData: () => WeddingData;
@@ -62,6 +65,7 @@ export const useWeddingStore = create<WeddingStore>()(
       timeline: initialTimeline,
       decisions: initialDecisions,
       checklist: initialChecklist,
+      events: initialEvents,
       lastUpdated: new Date().toISOString(),
       updatedBy: '',
 
@@ -123,6 +127,10 @@ export const useWeddingStore = create<WeddingStore>()(
       deleteChecklistItem: (id) =>
         set((s) => { touch(s); return { checklist: s.checklist.filter((c) => c.id !== id) }; }),
 
+      // Events
+      updateEvent: (id, updates) =>
+        set((s) => { touch(s); return { events: s.events.map((e) => e.id === id ? { ...e, ...updates } : e) }; }),
+
       // Import / Export
       importData: (data) =>
         set((s) => ({ ...s, ...data, lastUpdated: new Date().toISOString() })),
@@ -136,6 +144,7 @@ export const useWeddingStore = create<WeddingStore>()(
           timeline: s.timeline,
           decisions: s.decisions,
           checklist: s.checklist,
+          events: s.events,
           lastUpdated: s.lastUpdated,
           updatedBy: s.updatedBy,
         };
