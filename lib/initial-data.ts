@@ -1,0 +1,88 @@
+import { BudgetItem, Task, TimelinePhase, Decision, ChecklistItem } from './types';
+
+export const initialBudget: BudgetItem[] = [
+  { id: 'b1', item: 'Court outfit', weddingArea: 'Court Wedding', category: 'Outfit', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b2', item: 'Court bouquet', weddingArea: 'Court Wedding', category: 'Florals', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b3', item: 'Registry fees', weddingArea: 'Court Wedding', category: 'Legal/Admin', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b4', item: 'Court photography', weddingArea: 'Court Wedding', category: 'Photography', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b5', item: 'Court hair & makeup', weddingArea: 'Court Wedding', category: 'Beauty', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b6', item: 'White wedding dress', weddingArea: 'White Wedding', category: 'Outfit', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b7', item: 'Groom suit', weddingArea: 'White Wedding', category: 'Outfit', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b8', item: 'Venue', weddingArea: 'White Wedding', category: 'Venue', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b9', item: 'Decor', weddingArea: 'White Wedding', category: 'Decor', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b10', item: 'Photography', weddingArea: 'White Wedding', category: 'Photography', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b11', item: 'Videography', weddingArea: 'White Wedding', category: 'Photography', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b12', item: 'Catering', weddingArea: 'White Wedding', category: 'Catering', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b13', item: 'Wedding cake', weddingArea: 'White Wedding', category: 'Catering', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b14', item: 'Florals & centrepieces', weddingArea: 'White Wedding', category: 'Florals', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b15', item: 'Bridal hair & makeup', weddingArea: 'White Wedding', category: 'Beauty', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b16', item: 'DJ / live music', weddingArea: 'White Wedding', category: 'Entertainment', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b17', item: 'Invitations & stationery', weddingArea: 'White Wedding', category: 'Stationery', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b18', item: 'Transport', weddingArea: 'White Wedding', category: 'Logistics', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b19', item: 'Traditional outfit (Bride)', weddingArea: 'Traditional Wedding', category: 'Outfit', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b20', item: 'Traditional outfit (Groom)', weddingArea: 'Traditional Wedding', category: 'Outfit', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b21', item: 'Aso-ebi / family fabric', weddingArea: 'Traditional Wedding', category: 'Outfit', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b22', item: 'Traditional decor', weddingArea: 'Traditional Wedding', category: 'Decor', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b23', item: 'Food & drinks', weddingArea: 'Traditional Wedding', category: 'Catering', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b24', item: 'Traditional venue', weddingArea: 'Traditional Wedding', category: 'Venue', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b25', item: 'Traditional photography', weddingArea: 'Traditional Wedding', category: 'Photography', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b26', item: 'Live band / DJ', weddingArea: 'Traditional Wedding', category: 'Entertainment', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b27', item: 'Bride hair & makeup (traditional)', weddingArea: 'Traditional Wedding', category: 'Beauty', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b28', item: 'Pre-wedding shoot outfits', weddingArea: 'Pre-Wedding Shoot', category: 'Outfit', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b29', item: 'Pre-wedding photographer', weddingArea: 'Pre-Wedding Shoot', category: 'Photography', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+  { id: 'b30', item: 'Makeup / hair trial', weddingArea: 'Pre-Wedding Shoot', category: 'Beauty', estimatedBudget: 0, actualCost: 0, paid: 0, paymentStatus: 'Unpaid', paymentDue: '', vendor: '', notes: '' },
+];
+
+export const initialTasks: Task[] = [
+  { id: 't1', task: 'Confirm final wedding colour palettes', weddingArea: 'General', category: 'Planning', owner: 'Both', deadline: '', status: 'Completed', priority: 'High', dependency: '', done: true, notes: '' },
+  { id: 't2', task: 'Create wedding budget', weddingArea: 'General', category: 'Finance', owner: 'Both', deadline: '', status: 'In progress', priority: 'High', dependency: '', done: false, notes: '' },
+  { id: 't3', task: 'Shortlist court wedding outfits', weddingArea: 'Court Wedding', category: 'Outfit', owner: 'Bride', deadline: '', status: 'Not started', priority: 'Medium', dependency: '', done: false, notes: '' },
+  { id: 't4', task: 'Book registry / court appointment', weddingArea: 'Court Wedding', category: 'Legal/Admin', owner: 'Both', deadline: '', status: 'Not started', priority: 'High', dependency: '', done: false, notes: '' },
+  { id: 't5', task: 'Shortlist white wedding venues', weddingArea: 'White Wedding', category: 'Venue', owner: 'Both', deadline: '', status: 'Not started', priority: 'High', dependency: '', done: false, notes: '' },
+  { id: 't6', task: 'Confirm white wedding photographer', weddingArea: 'White Wedding', category: 'Photography', owner: 'Both', deadline: '', status: 'Not started', priority: 'High', dependency: '', done: false, notes: '' },
+  { id: 't7', task: 'Choose bridesmaids colour / shade', weddingArea: 'White Wedding', category: 'Styling', owner: 'Bride', deadline: '', status: 'Not started', priority: 'Medium', dependency: '', done: false, notes: '' },
+  { id: 't8', task: 'Shortlist traditional wedding venue', weddingArea: 'Traditional Wedding', category: 'Venue', owner: 'Both', deadline: '', status: 'Not started', priority: 'High', dependency: '', done: false, notes: '' },
+  { id: 't9', task: 'Confirm traditional colour fabric shade (aso-ebi)', weddingArea: 'Traditional Wedding', category: 'Styling', owner: 'Both', deadline: '', status: 'Not started', priority: 'High', dependency: '', done: false, notes: '' },
+  { id: 't10', task: 'Plan pre-wedding shoot looks', weddingArea: 'Pre-Wedding Shoot', category: 'Styling', owner: 'Both', deadline: '', status: 'In progress', priority: 'Medium', dependency: '', done: false, notes: '' },
+  { id: 't11', task: 'Book pre-wedding shoot location', weddingArea: 'Pre-Wedding Shoot', category: 'Planning', owner: 'Both', deadline: '', status: 'Not started', priority: 'Medium', dependency: '', done: false, notes: '' },
+  { id: 't12', task: 'Draft guest list', weddingArea: 'General', category: 'Guest Admin', owner: 'Both', deadline: '', status: 'Not started', priority: 'High', dependency: '', done: false, notes: '' },
+];
+
+export const initialTimeline: TimelinePhase[] = [
+  { id: 'tl1', phase: 'Foundation', targetPeriod: 'Now', keyActions: 'Agree budget, colour palette, wedding structure and priority list', weddingArea: 'General', owner: 'Both', status: 'In progress', notes: '', done: false },
+  { id: 'tl2', phase: 'Shortlisting', targetPeriod: 'Early planning', keyActions: 'Shortlist venues, outfits, photographers, decorators and makeup', weddingArea: 'General', owner: 'Both', status: 'Not started', notes: '', done: false },
+  { id: 'tl3', phase: 'Deposits', targetPeriod: 'After quotes', keyActions: 'Pay deposits for key vendors and record balances', weddingArea: 'General', owner: 'Both', status: 'Not started', notes: '', done: false },
+  { id: 'tl4', phase: 'Styling', targetPeriod: 'After vendor shortlist', keyActions: 'Confirm outfits, accessories, hair, makeup and colour matching', weddingArea: 'General', owner: 'Bride', status: 'Not started', notes: '', done: false },
+  { id: 'tl5', phase: 'Guest Admin', targetPeriod: 'Before invites', keyActions: 'Draft guest list, family split, invite wording and RSVP tracking', weddingArea: 'General', owner: 'Both', status: 'Not started', notes: '', done: false },
+  { id: 'tl6', phase: 'Final Month', targetPeriod: 'Final month', keyActions: 'Confirm vendor balances, timings, seating, transport and family roles', weddingArea: 'General', owner: 'Both', status: 'Not started', notes: '', done: false },
+];
+
+export const initialDecisions: Decision[] = [
+  { id: 'd1', date: '', decision: 'Court wedding colours: ivory, champagne and white', weddingArea: 'Court Wedding', whyWeChoseIt: 'Soft, elegant and classic civil wedding palette', owner: 'Both', status: 'Completed', notes: '' },
+  { id: 'd2', date: '', decision: 'White wedding colours: ivory, champagne and white', weddingArea: 'White Wedding', whyWeChoseIt: 'Keeps the main wedding timeless and cohesive', owner: 'Both', status: 'Completed', notes: '' },
+  { id: 'd3', date: '', decision: 'Traditional colours: deep burgundy and warm gold', weddingArea: 'Traditional Wedding', whyWeChoseIt: 'Adds richness, culture, warmth and celebration', owner: 'Both', status: 'Completed', notes: '' },
+  { id: 'd4', date: '', decision: 'Pre-wedding shoot should use two looks', weddingArea: 'Pre-Wedding Shoot', whyWeChoseIt: 'Prevents the colours looking too busy while still tying all events together', owner: 'Both', status: 'Completed', notes: '' },
+];
+
+export const initialChecklist: ChecklistItem[] = [
+  { id: 'c1', done: false, item: 'Confirm court wedding date', weddingArea: 'Court Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c2', done: false, item: 'Book registry / court appointment', weddingArea: 'Court Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c3', done: false, item: 'Choose court wedding outfit', weddingArea: 'Court Wedding', priority: 'Medium', deadline: '', notes: '' },
+  { id: 'c4', done: false, item: 'Book court wedding photographer', weddingArea: 'Court Wedding', priority: 'Medium', deadline: '', notes: '' },
+  { id: 'c5', done: false, item: 'Shortlist white wedding venues', weddingArea: 'White Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c6', done: false, item: 'Confirm white wedding photographer', weddingArea: 'White Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c7', done: false, item: 'Choose bridesmaids colour / shade', weddingArea: 'White Wedding', priority: 'Medium', deadline: '', notes: '' },
+  { id: 'c8', done: false, item: 'Order wedding dress', weddingArea: 'White Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c9', done: false, item: 'Book caterer', weddingArea: 'White Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c10', done: false, item: 'Book DJ / live music', weddingArea: 'White Wedding', priority: 'Medium', deadline: '', notes: '' },
+  { id: 'c11', done: false, item: 'Shortlist traditional wedding venue', weddingArea: 'Traditional Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c12', done: false, item: 'Confirm traditional colour fabric shade', weddingArea: 'Traditional Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c13', done: false, item: 'Source aso-ebi fabric for family', weddingArea: 'Traditional Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c14', done: false, item: 'Plan traditional catering', weddingArea: 'Traditional Wedding', priority: 'High', deadline: '', notes: '' },
+  { id: 'c15', done: false, item: 'Plan pre-wedding shoot location', weddingArea: 'Pre-Wedding Shoot', priority: 'Medium', deadline: '', notes: '' },
+  { id: 'c16', done: false, item: 'Plan pre-wedding shoot outfits', weddingArea: 'Pre-Wedding Shoot', priority: 'Medium', deadline: '', notes: '' },
+  { id: 'c17', done: false, item: 'Draft full guest list', weddingArea: 'General', priority: 'High', deadline: '', notes: '' },
+  { id: 'c18', done: false, item: 'Send save the dates', weddingArea: 'General', priority: 'High', deadline: '', notes: '' },
+  { id: 'c19', done: false, item: 'Design & send invitations', weddingArea: 'General', priority: 'High', deadline: '', notes: '' },
+  { id: 'c20', done: false, item: 'Book honeymoon', weddingArea: 'General', priority: 'Medium', deadline: '', notes: '' },
+];
