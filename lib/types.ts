@@ -118,6 +118,15 @@ export interface EventDetail {
   // Guests
   guestDressCode: string;
   guestColour: string;
+  // Travel
+  flightFrom: string;
+  flightTo: string;
+  airline: string;
+  flightNumber: string;
+  departureDate: string;
+  departureTime: string;
+  bookingRef: string;
+  returnNotes: string;
   // General
   palette: string;
   notes: string;

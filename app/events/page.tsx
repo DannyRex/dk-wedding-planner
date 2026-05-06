@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useWeddingStore } from '@/lib/store';
 import Modal from '@/components/ui/Modal';
-import { Pencil, Calendar, MapPin, Sparkles, Shirt, Footprints, Users, StickyNote } from 'lucide-react';
+import { Pencil, Calendar, MapPin, Sparkles, Shirt, Users, StickyNote, PlaneTakeoff } from 'lucide-react';
 import type { EventDetail } from '@/lib/types';
 
 const EVENT_META: Record<string, { accent: string; accentText: string; headerBg: string; dotColor: string }> = {
@@ -71,6 +71,20 @@ const FIELD_GROUPS = [
     ],
   },
   {
+    label: 'Travel & Flights',
+    icon: PlaneTakeoff,
+    fields: [
+      { key: 'flightFrom', label: 'Departing From', type: 'text', placeholder: 'e.g. London Heathrow (LHR)' },
+      { key: 'flightTo', label: 'Flying To', type: 'text', placeholder: 'e.g. Lagos (LOS)' },
+      { key: 'airline', label: 'Airline', type: 'text', placeholder: 'e.g. British Airways' },
+      { key: 'flightNumber', label: 'Flight Number', type: 'text', placeholder: 'e.g. BA075' },
+      { key: 'departureDate', label: 'Departure Date', type: 'date', placeholder: '' },
+      { key: 'departureTime', label: 'Departure Time', type: 'time', placeholder: '' },
+      { key: 'bookingRef', label: 'Booking Reference', type: 'text', placeholder: 'e.g. X4K9TQ' },
+      { key: 'returnNotes', label: 'Return Flight Notes', type: 'textarea', placeholder: 'Return airline, flight no., date, time…' },
+    ],
+  },
+  {
     label: 'Notes',
     icon: StickyNote,
     fields: [
@@ -125,7 +139,7 @@ export default function EventsPage() {
       <div className="bg-white border-b border-champagne-200 px-6 py-6">
         <h1 className="page-title">Event Details</h1>
         <p className="text-sm text-stone-400 mt-1">
-          Dates, looks and dress codes for each ceremony — all in one place.
+          Dates, looks, dress codes and travel for each ceremony — all in one place.
         </p>
       </div>
 
@@ -133,6 +147,7 @@ export default function EventsPage() {
         {events.map((ev) => {
           const meta = EVENT_META[ev.weddingArea] ?? EVENT_META['Court Wedding'];
           const hasDate = !!ev.date;
+          const hasFlight = !!(ev.flightFrom || ev.flightTo || ev.airline || ev.flightNumber || ev.departureDate);
 
           return (
             <div key={ev.id} className="card overflow-hidden flex flex-col">
@@ -219,6 +234,51 @@ export default function EventsPage() {
                     <DetailRow label="Dress Code" value={ev.guestDressCode} />
                     <DetailRow label="Colour Direction" value={ev.guestColour} />
                   </div>
+                </div>
+
+                <div className="border-t border-champagne-100" />
+
+                {/* Travel */}
+                <div>
+                  <div className="flex items-center gap-1.5 mb-3">
+                    <PlaneTakeoff className="w-3.5 h-3.5 text-stone-400" />
+                    <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider">Travel</span>
+                  </div>
+                  {hasFlight ? (
+                    <div className="pl-5 space-y-3">
+                      {/* Outbound summary pill */}
+                      <div className="flex flex-wrap items-center gap-2">
+                        {(ev.flightFrom || ev.flightTo) && (
+                          <div className="flex items-center gap-1.5 bg-champagne-50 border border-champagne-200 rounded-full px-3 py-1">
+                            <PlaneTakeoff className="w-3 h-3 text-gold-500" />
+                            <span className="text-xs font-medium text-stone-600">
+                              {ev.flightFrom}{ev.flightFrom && ev.flightTo ? ' → ' : ''}{ev.flightTo}
+                            </span>
+                          </div>
+                        )}
+                        {ev.airline && (
+                          <span className="text-xs text-stone-500">{ev.airline}</span>
+                        )}
+                        {ev.flightNumber && (
+                          <span className="text-xs font-mono bg-stone-100 text-stone-600 px-2 py-0.5 rounded">{ev.flightNumber}</span>
+                        )}
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        {ev.departureDate && (
+                          <DetailRow
+                            label="Departure"
+                            value={`${new Date(ev.departureDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}${ev.departureTime ? ' · ' + ev.departureTime : ''}`}
+                          />
+                        )}
+                        {ev.bookingRef && <DetailRow label="Booking Ref" value={ev.bookingRef} />}
+                      </div>
+                      {ev.returnNotes && <DetailRow label="Return" value={ev.returnNotes} />}
+                    </div>
+                  ) : (
+                    <div className="pl-5">
+                      <p className="text-sm text-stone-300 italic">Not set yet</p>
+                    </div>
+                  )}
                 </div>
 
                 {ev.notes && (
