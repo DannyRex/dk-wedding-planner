@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import Navigation from '@/components/Navigation';
+import StoreInitializer from '@/components/StoreInitializer';
+import AppShell from '@/components/AppShell';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const cormorant = Cormorant_Garamond({
@@ -26,10 +28,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable} h-full`}>
       <body className="h-full flex bg-cream">
+        <StoreInitializer />
         <Navigation />
-        <main className="flex-1 overflow-auto">
+        <AppShell>
           {children}
-        </main>
+        </AppShell>
       </body>
     </html>
   );
